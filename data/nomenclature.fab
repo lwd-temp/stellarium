@@ -2348,6 +2348,8 @@ Io	16222	_("Olafat Patera","patera")	PE	-62.660000	115.610000	119	_("Caroline Is
 Io	1676	_("Dusura Patera","patera")	PE	37.528500	240.965100	65.62212	_("Nabataean sun god.","origin")
 # TRANSLATORS: (Io); Polynesian god who causes earthquakes and volcanoes.
 Io	5210	_("Ruaumoko Patera","patera")	PE	14.724600	220.260200	18.27672	_("Polynesian god who causes earthquakes and volcanoes.","origin")
+# TRANSLATORS: (Io); !Kung (people of Sao/Bushmen group in Angola, Namibia, and Botswana) western sky sun god.
+Io	16171	_("Gauwa Patera","patera")	PE	35.650000	347.820000	27	_("!Kung (people of Sao/Bushmen group in Angola, Namibia, and Botswana) western sky sun god.","origin")
 # TRANSLATORS: (Io); Nandi (Kenya) supreme god, personified by the Sun.
 Io	16167	_("Asis Patera","patera")	PE	44.330000	268.860000	98	_("Nandi (Kenya) supreme god, personified by the Sun.","origin")
 # TRANSLATORS: (Io); Lapp/Sami god of thunder.
@@ -2358,8 +2360,6 @@ Io	16168	_("Yeloje Patera","patera")	PE	20.100000	227.600000	107	_("Yukaghir (NE
 Io	16169	_("Verbti Patera","patera")	PE	37.990000	272.080000	62	_("Albanian god of fire.","origin")
 # TRANSLATORS: (Io); Old Syrian blacksmith god.
 Io	16170	_("Kotar Patera","patera")	PE	11.180000	298.630000	67	_("Old Syrian blacksmith god.","origin")
-# TRANSLATORS: (Io); !Kung (people of Sao/Bushmen group in Angola, Namibia, and Botswana) western sky sun god.
-Io	16171	_("Gauwa Patera","patera")	PE	35.650000	347.820000	27	_("!Kung (people of Sao/Bushmen group in Angola, Namibia, and Botswana) western sky sun god.","origin")
 # TRANSLATORS: (Io); Huwwara (Berbers of Libya) sun god.
 Io	16172	_("Gurzil Patera","patera")	PE	50.400000	311.740000	51	_("Huwwara (Berbers of Libya) sun god.","origin")
 # TRANSLATORS: (Io); Visayan (Philippines) supreme god that resides on the Kanlaon/Malaspina Volcano of Negros island.
@@ -4846,6 +4846,14 @@ Mars	16276	_("Kahnawake","crater")	AA	-27.600000	203.100000	30	_("Town in Canada
 Mars	16277	_("Longwood","crater")	AA	-25.880000	199.460000	43	_("Village in Saint Helena Island.","origin")
 # TRANSLATORS: (Mars); Village in Hao atoll, Tuamotu Archipelago, French Polynesia.
 Mars	16278	_("Otepa","crater")	AA	-26.320000	198.570000	42	_("Village in Hao atoll, Tuamotu Archipelago, French Polynesia.","origin")
+# TRANSLATORS: (Mars); Town in South Africa.
+Mars	16279	_("Taung","crater")	AA	11.080000	316.080000	40	_("Town in South Africa.","origin")
+# TRANSLATORS: (Mars); Devendra; Indian geophysicist (1929-2012).
+Mars	16288	_("Lal","crater")	AA	-20.980000	209.340000	69	_("Devendra; Indian geophysicist (1929-2012).","origin")
+# TRANSLATORS: (Mars); Town in Uttar Pradesh, India.
+Mars	16289	_("Mursan","crater")	AA	-21.000000	209.940000	11	_("Town in Uttar Pradesh, India.","origin")
+# TRANSLATORS: (Mars); Town in Bihar, India.
+Mars	16290	_("Hilsa","crater")	AA	-21.030000	208.670000	14	_("Town in Bihar, India.","origin")
 # TRANSLATORS: (Mars); Nancy Grace; American astronomer (1925-2018).
 Mars	16165	_("Roman","crater")	AA	-4.380000	80.420000	60	_("Nancy Grace; American astronomer (1925-2018).","origin")
 # TRANSLATORS: (Mars); Village in Spain.
@@ -6102,6 +6110,8 @@ Mars	5580	_("Sisyphi Montes","mons")	MO	-69.653500	13.079700	200	_("From albedo 
 Mars	1315	_("Coronae Montes","mons")	MO	-34.309400	86.109400	247.39606	_("Albedo feature name.","origin")
 # TRANSLATORS: (Mars); Named for albedo feature Labeatis Lacus.
 Mars	3193	_("Labeatis Mons","mons")	MO	37.482400	284.144300	42.78009	_("Named for albedo feature Labeatis Lacus.","origin")
+# TRANSLATORS: (Mars); Named for classical albedo feature name, Juventae Fons.
+Mars	16292	_("Juventae Mons","mons")	MO	-1.920000	300.830000	147	_("Named for classical albedo feature name, Juventae Fons.","origin")
 # TRANSLATORS: (Mars); Classical albedo feature name.
 Mars	15236	_("Argyre Mons","mons")	MO	-50.369000	311.906100	60.58	_("Classical albedo feature name.","origin")
 # TRANSLATORS: (Mars); Classical martian albedo feature, Coprates
@@ -6164,6 +6174,10 @@ Mars	4646	_("Peneus Patera","patera")	PE	-57.816600	52.645300	128.50394	_("From 
 Mars	3604	_("Malea Patera","patera")	PE	-63.542800	51.585500	241.6061	_("Classical albedo feature name.","origin")
 # TRANSLATORS: (Mars); Classical albedo name.
 Mars	2745	_("Issedon Paterae","patera")	PE	38.126100	269.748000	5.31057	_("Classical albedo name.","origin")
+# TRANSLATORS: (Mars); Named for classical albedo feature name, Nectaris.
+Mars	16293	_("Nectaris Patera","patera")	PE	-17.330000	303.050000	22	_("Named for classical albedo feature name, Nectaris.","origin")
+# TRANSLATORS: (Mars); Named for classical albedo feature name, Xanthe.
+Mars	16291	_("Xanthe Patera","patera")	PE	-3.020000	313.120000	55	_("Named for classical albedo feature name, Xanthe.","origin")
 # TRANSLATORS: (Mars); Classical albedo feature name.
 Mars	15038	_("Euphrates Patera","patera")	PE	38.429700	10.260200	20.268	_("Classical albedo feature name.","origin")
 # TRANSLATORS: (Mars); Classical albedo feature name.
@@ -6850,6 +6864,8 @@ Mathilde	6761	_("Zulia","crater")	AA	-39.500000	329.100000	12.3	_("Principal sta
 Mercury	16218	_("Manley","crater")	AA	-10.530000	103.390000	218	_("Edna; Jamaican sculptor, painter, and printmaker (1900-1987).","origin")
 # TRANSLATORS: (Mercury); Toni; American author (1931-2019).
 Mercury	16098	_("Morrison","crater")	AA	79.660000	232.570000	35	_("Toni; American author (1931-2019).","origin")
+# TRANSLATORS: (Mercury); Farrokh; known as Freddie Mercury, British singer and songwriter of Indian-Zanzibar descent, leader of the rock band Queen (1946-1991).
+Mercury	16280	_("Bulsara","crater")	AA	-34.160000	60.000000	110	_("Farrokh; known as Freddie Mercury, British singer and songwriter of Indian-Zanzibar descent, leader of the rock band Queen (1946-1991).","origin")
 # TRANSLATORS: (Mercury); Ivan Sergeyevich; Russian writer (1818-1883).
 Mercury	6140	_("Turgenev","crater")	AA	65.678600	223.743500	136	_("Ivan Sergeyevich; Russian writer (1818-1883).","origin")
 # TRANSLATORS: (Mercury); Chinese painter and calligrapher (1254-1322).
@@ -9358,6 +9374,8 @@ Moon	2541	_("Holetschek","crater")	AA	-27.612900	151.146300	37.767746	_("Johann;
 Moon	2159	_("Gilbert","crater")	AA	-3.195000	76.159800	100.2472	_("Grove Karl; American geologist (1843-1918), William; English physician and physicist (1544-1603).","origin")
 # TRANSLATORS: (Moon); Sir David; British astronomer (1843-1914).
 Moon	2163	_("Gill","crater")	AA	-63.765200	75.945700	63.895958	_("Sir David; British astronomer (1843-1914).","origin")
+# TRANSLATORS: (Moon); Erik; Russian geochemist (1936-2020).
+Moon	16287	_("Galimov","crater")	AA	-64.300000	233.470000	33	_("Erik; Russian geochemist (1936-2020).","origin")
 # TRANSLATORS: (Moon); Friedrich Karl; Austrian astronomer (1850-1926).
 Moon	2170	_("Ginzel","crater")	AA	14.249600	97.400300	53.234013	_("Friedrich Karl; Austrian astronomer (1850-1926).","origin")
 # TRANSLATORS: (Moon); Italian astronomer (1548-1600).
@@ -27274,6 +27292,18 @@ Titan	15095	_("Sionascaig Lacus","lacus")	LC	-41.520000	81.880000	143.2	_("Lake 
 Titan	15096	_("Urmia Lacus","lacus")	LC	-39.270000	83.450000	28.6	_("Lake in Iran.","origin")
 # TRANSLATORS: (Titan); Lake in Russia.
 Titan	15117	_("Ladoga Lacus","lacus")	LC	74.800000	333.900000	110	_("Lake in Russia.","origin")
+# TRANSLATORS: (Titan); Lake in Mexico.
+Titan	16281	_("Chapala Lacus","lacus")	LC	142.630000	287.530000	23	_("Lake in Mexico.","origin")
+# TRANSLATORS: (Titan); Lake in Haiti.
+Titan	16282	_("Robino Lacus","lacus")	LC	74.280000	219.540000	11	_("Lake in Haiti.","origin")
+# TRANSLATORS: (Titan); Lake in Guam.
+Titan	16283	_("Fena Lacus","lacus")	LC	74.570000	220.470000	16	_("Lake in Guam.","origin")
+# TRANSLATORS: (Titan); Lake in Burkina Faso.
+Titan	16284	_("Dem Lacus","lacus")	LC	75.170000	221.590000	26	_("Lake in Burkina Faso.","origin")
+# TRANSLATORS: (Titan); Lake in Sierra Leone.
+Titan	16285	_("Tibi Lacus","lacus")	LC	76.650000	224.250000	47	_("Lake in Sierra Leone.","origin")
+# TRANSLATORS: (Titan); Lake in Belize.
+Titan	16286	_("Vaca Lacus","lacus")	LC	77.000000	228.070000	46	_("Lake in Belize.","origin")
 # TRANSLATORS: (Titan); Lake in Argentina.
 Titan	15582	_("Viedma Lacus","lacus")	LC	72.000000	234.300000	42	_("Lake in Argentina.","origin")
 # TRANSLATORS: (Titan); Lake in Uruguay.
@@ -27564,10 +27594,10 @@ Titan	15708	_("Baffin Sinus","sinus")	SI	80.350000	15.380000	110	_("Bay in Canad
 Titan	15707	_("Dingle Sinus","sinus")	SI	81.360000	23.560000	80	_("Bay in Ireland.","origin")
 # TRANSLATORS: (Titan); Aztec paradise where crops never fade.
 Titan	14920	_("Tollan Terra","terra")	TA	6.400000	37.300000	800	_("Aztec paradise where crops never fade.","origin")
-# TRANSLATORS: (Titan); Iranian paradise where the souls of faithful men dwell.
-Titan	14919	_("Garotman Terra","terra")	TA	-13.500000	12.000000	970	_("Iranian paradise where the souls of faithful men dwell.","origin")
 # TRANSLATORS: (Titan); Australian spirit land filled with game and clean water for good souls.
 Titan	14921	_("Yalaing Terra","terra")	TA	-19.500000	36.000000	980	_("Australian spirit land filled with game and clean water for good souls.","origin")
+# TRANSLATORS: (Titan); Iranian paradise where the souls of faithful men dwell.
+Titan	14919	_("Garotman Terra","terra")	TA	-13.500000	12.000000	970	_("Iranian paradise where the souls of faithful men dwell.","origin")
 # TRANSLATORS: (Titan); Hopi name for Mount Taylor (New Mexico, US), as a sacred mountain.
 Titan	15654	_("Tsiipiya Terra","terra")	TA	2.830100	19.880500	573.238	_("Hopi name for Mount Taylor (New Mexico, US), as a sacred mountain.","origin")
 # TRANSLATORS: (Titan); Greek personification of the gentle west wind.

@@ -298,7 +298,7 @@ void SolarSystem::init()
 	
 	StelApp *app = &StelApp::getInstance();
 	connect(app, SIGNAL(languageChanged()), this, SLOT(updateI18n()));
-	connect(&app->getSkyCultureMgr(), SIGNAL(currentSkyCultureChanged(QString)), this, SLOT(updateSkyCulture(QString)));
+	connect(&app->getSkyCultureMgr(), &StelSkyCultureMgr::currentSkyCultureIDChanged, this, &SolarSystem::updateSkyCulture);
 	connect(&StelMainView::getInstance(), SIGNAL(reloadShadersRequested()), this, SLOT(reloadShaders()));
 	StelCore *core = app->getCore();
 	connect(core, SIGNAL(locationChanged(StelLocation)), this, SLOT(recreateTrails()));
@@ -3578,6 +3578,18 @@ QPair<double, PlanetP> SolarSystem::getSolarEclipseFactor(const StelCore* core) 
 	}
 
 	return QPair<double, PlanetP>(final_illumination, p);
+}
+
+// Opening angle of the bright Solar crescent, radians
+// From: J. Meeus, Morsels IV, ch.15
+// lunarSize: apparent Lunar radius or diameter, angular units of your preference
+// solarSize: apparent Solar radius or diameter, resp., same angular units
+// eclipseMagnitude: covered fraction of the Solar diameter.
+double SolarSystem::getEclipseCrescentAngle(const double lunarSize, const double solarSize, const double eclipseMagnitude)
+{
+	const double R = lunarSize/solarSize;
+	const double cosAhalf = 2.*eclipseMagnitude * (R-eclipseMagnitude)/(1.+R-2.*eclipseMagnitude) - 1.;
+	return (std::fabs(cosAhalf) <= 1. ? 2.*acos(cosAhalf) : 0.);
 }
 
 // Retrieve Radius of Umbra and Penumbra at the distance of the Moon.

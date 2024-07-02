@@ -478,6 +478,51 @@ curl -G -d 'propId=-2&actionId=-2' http://localhost:8090/api/main/status | \
      python -m json.tool 
 \end{commandsScr} 
 
+
+If you want to use \program{node.js} to build your own interface app, you may find the following example helpful.%
+\footnote{Thanks to user FogoVoar}
+It sets the view direction in one of 3 coordinate systems, depending on the argument:
+
+\begin{commandsScr}
+    "j2000" : "[x,y,z]",
+    "jNow"  : "[x,y,z]",
+    "altAz" : "[x,y,z]"
+\end{commandsScr}
+
+\noindent The vector $[x, y, z]$ should be a normalized vector (unit length), derived from 
+either J2000.0 or current equatorial coordinates $(\alpha, \delta)$, 
+or from alt-azimuthal coordinates $(\mathit{Az}, \mathit{alt})$ which are however always counted from south ($[1,0,0]$) towards east ($[0,1,0]$), 
+with the azimuth $\mathit{Az}'$ counted from South towards East, $\mathit{Az}'=180-\mathit{Az}$.
+
+\begin{minipage}{0.3\textwidth}
+\begin{align*}
+x & = & \cos(\delta)*\cos(\alpha)\\
+y & = & \cos(\delta)*\sin(\alpha)\\
+z & = & \sin(\delta)
+\end{align*}
+\end{minipage}\hspace{1cm}
+\begin{minipage}{0.3\textwidth}
+\begin{align*}
+x & = & \cos(\mathit{alt})*\cos(\mathit{Az}')\\
+y & = & \cos(\mathit{alt})*\sin(\mathit{Az}')\\
+z & = & \sin(\mathit{alt}) 
+\end{align*}
+\end{minipage}
+	
+\begin{commandsScr}
+const url = 'http://192.168.xxx.xxx:8090/api/main/view?j2000=[0.5,0.3,0.2]';
+fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+  .then(response => {
+    response.text().then(text => console.log('Raw response:', text));
+    return response.json();
+  })
+\end{commandsScr}
+
   
 \subsection{Developer information}
 \label{sec:plugins:RemoteControl:developer}
@@ -738,14 +783,18 @@ File \file{data/ssystem\_major.ini} in the installation directory contains data 
 File \file{data/ssystem\_minor.ini} contains data for minor bodies, i.e., planetoids and comets.
 The file will be taken from the user data directory if it also exists there, which means that users can add minor planets or comets as they become observable by editing this file.
 
-The orbits of minor bodies (minor planets and comets) are specified with \indexterm{orbital elements} for 
+The orbits of minor bodies (minor planets and comets) are specified with \indexterm[orbital elements, osculating]{orbital elements} for 
 \indexterm{Kepler orbits} (after \name[Johannes]{Kepler} (1572--1630) who found the true shape of the orbit 
 of a small body around a large one being a conic section, i.e., circle, ellipse, parabola or hyperbola). These elements 
 describe the instantaneous shape and orientation of the object's orbit around the Sun at a particular time 
-called the \indexterm{epoch}.  See Appendix~\ref{sec:ssystem.ini} for more details. 
-We compute positions from these unperturbed orbits, but the result is only valid for 
+called the \indexterm{epoch}.  
+We compute positions from these \indexterm[orbital elements, osculating]{osculating elements} of minor body orbits, but the result is only valid for 
 a moderately short timespan around the epoch, because the major planets can exert noticeable gravitational perturbations 
-on the objects when they come close, and so these orbital elements need to be updated on a regular basis. 
+on the objects when they come close, and so these orbital elements, which are mere snapshots in time, need to be updated on a regular basis. 
+Stellarium does not perform numerical integration that could work out the orbital changes automatically, 
+and so the element file needs to be modified to compute positions further away from the orbit's epoch. 
+See Appendix~\ref{sec:ssystem.ini} for more details, 
+and see e.g.\ \citet{Meeus:Morsels4} for a discussion of a few interesting examples of orbital development.
 When you go out hunting for asteroids and comets, this plugin is for you.
 
 This plugin provides access to the Minor Planet Center (MPC\footnote{\url{https://www.minorplanetcenter.net}}) server where the latest Solar System information can be found. When this plugin is

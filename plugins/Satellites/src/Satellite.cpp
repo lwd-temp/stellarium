@@ -19,11 +19,10 @@
 
 #include "Satellite.hpp"
 #include "StelObject.hpp"
-#include "StelObjectMgr.hpp"
+//#include "StelObjectMgr.hpp"
 #include "StelPainter.hpp"
 #include "StelApp.hpp"
 #include "StelCore.hpp"
-#include "StelTexture.hpp"
 #include "VecMath.hpp"
 #include "StelUtils.hpp"
 #include "StelTranslator.hpp"
@@ -114,7 +113,8 @@ Satellite::Satellite(const QString& identifier, const QVariantMap& map)
 	, rangeRate(0.)
 	, hintColor(0.f,0.f,0.f)
 	, lastUpdated()	
-	, isISS(false)	
+	, isISS(false)
+	, isStarlink(false)
 	, pSatWrapper(nullptr)
 	, visibility(gSatWrapper::UNKNOWN)
 	, phaseAngle(0.)
@@ -210,7 +210,8 @@ Satellite::Satellite(const QString& identifier, const QVariantMap& map)
 
 	orbitValid = true;
 	initialized = true;
-	isISS = (name=="ISS" || name=="ISS (ZARYA)" || name=="ISS (NAUKA)");
+	isISS = (name.compare("25544"));
+	isStarlink = (name.startsWith("STARLINK"));
 	moon = GETSTELMODULE(SolarSystem)->getMoon();
 	sun = GETSTELMODULE(SolarSystem)->getSun();
 
@@ -303,7 +304,7 @@ float Satellite::getSelectPriority(const StelCore* core) const
 		limit = (minVFAltitude<=height && height<=maxVFAltitude) ? -10.f : 50.f;
 
 	if (flagVFMagnitude) // the visual filter is enabled
-		limit = ((maxVFMagnitude<=getVMagnitude(core) && getVMagnitude(core)<=minVFMagnitude) && (stdMag<99. || RCS>0.)) ? -10.f : 50.f;
+		limit = (((stdMag<99.) || (RCS>0.)) && ((maxVFMagnitude<=getVMagnitude(core)) && (getVMagnitude(core)<=minVFMagnitude))) ? -10.f : 50.f;
 
 	return limit;
 }
@@ -610,12 +611,13 @@ float Satellite::getVMagnitude(const StelCore* core) const
 	if (!iconicModeFlag && visibility != gSatWrapper::VISIBLE)
 		vmag = 17.f; // Artificial satellite is invisible and 17 is hypothetical value of magnitude
 
-	if (visibility==gSatWrapper::VISIBLE)
+	if (visibility==gSatWrapper::VISIBLE && pSatWrapper)
 	{
 #if(SATELLITES_PLUGIN_IRIDIUM == 1)
 		sunReflAngle = -1.;
 #endif
-		if (pSatWrapper && name.startsWith("STARLINK"))
+
+		if (isStarlink)
 		{
 			// Calculation of approx. visual magnitude for Starlink satellites
 			// described here: http://www.satobs.org/seesat/Aug-2020/0079.html
@@ -1145,11 +1147,7 @@ void Satellite::draw(StelCore* core, StelPainter& painter)
 				painter.setColor(transitSatelliteColor, 1.f);
 				int screenSizeSat = static_cast<int>((getAngularRadius(core)*(2.*M_PI_180))*static_cast<double>(painter.getProjector()->getPixelPerRadAtCenter()));
 				if (screenSizeSat>0)
-				{
-					painter.setBlending(true, GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
-					hintTexture->bind();
 					painter.drawSprite2dMode(XYZ, qMin(screenSizeSat, 15));
-				}
 
 				if (showLabels)
 				{
@@ -1201,8 +1199,6 @@ void Satellite::draw(StelCore* core, StelPainter& painter)
 			if (showLabels)
 				painter.drawText(XYZ, name, 0, 10, 10, false);
 
-			painter.setBlending(true, GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
-			hintTexture->bind();
 			painter.drawSprite2dMode(XYZ, 11);
 		}
 	}

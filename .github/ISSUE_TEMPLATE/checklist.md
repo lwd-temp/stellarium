@@ -54,6 +54,7 @@ This is checklist for maintainer of Stellarium (a release master)
 
 ### Plugins
 - [ ] Update the default list of satellites
+- [ ] Update the standard magnitudes and RCS of satellites
 - [ ] Update the default catalog of pulsars
 - [ ] Update the default catalog of exoplanets
 - [ ] Update the discovery circumstances for minor planets (Solar System Editor)
@@ -78,7 +79,6 @@ This is checklist for maintainer of Stellarium (a release master)
 - [ ] Fill the release notes on the GitHub
 - [ ] Make and upload [Stellarium User Guide for AppVeyor](https://github.com/Stellarium/stellarium-data/releases/tag/guide)
 - [ ] Upload packages on the GitHub
-- [ ] Upload Stellarium User Guide on the GitHub
 - [ ] Close milestone on the GitHub
 - [ ] Remove label `state: published` for all items from closed milestone on the GitHub
 - [ ] Update `CITATION.cff` and `CITATION` files

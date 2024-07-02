@@ -76,24 +76,25 @@ public:
 	//! Available sets of navigational stars
 	enum NavigationalStarsSet
 	{
-		AngloAmerican,	//!< Anglo-American set (The Nautical Almanac)
-		French,		//!< French set (Ephémérides Nautiques)
-		Russian,	//!< Russian set (Морской астрономический ежегодник)
-		USSRAvia,	//!< The set of navigational stars which was used for Soviet aviation
-		USSRSpace,	//!< The set of navigational stars for Soviet and Russian manned space programs Voskhod and Soyuz
-		German,		//!< German set (Nautisches Jahrbuch)
-		GeminiAPS,	//!< Gemini APS Alignment Star List
-		MeadeLX200,	//!< Meade LX200 Alignment Star Library
-		MeadeETX,	//!< Meade ETX Alignment Star Library
-		MeadeAS494,	//!< Meade Autostar #494 Alignment Stars
-		MeadeAS497,	//!< Meade Autostar #497 Alignment Stars
-		CelestronNS,	//!< Celestron NexStar Alignment Star List
-		Apollo,		//!< Apollo Alignment Star List
-		SkywatcherSS,	//!< Skywatcher SynScan Hand Controller and SynScan Pro App
-		VixenSB,	//!< Vixen Starbook Alignment Stars
-		ArgoNavis,	//!< Alignment stars for Argo Navis digital setting circles
-		OrionIS,	//!< Alignment stars for Orion Intelliscope mounts
-		SkyCommander	//!< Alignment stars for Sky Commander DSCs
+		AngloAmerican,  //!< Anglo-American set (The Nautical Almanac)
+		French,                  //!< French set (Ephémérides Nautiques)
+		British,                  //!< British set from XVIII century (Maskelyne's "British Mariner's Guide", 1764)
+		Russian,	                //!< Russian set (Морской астрономический ежегодник)
+		USSRAvia,             //!< The set of navigational stars which was used for Soviet aviation
+		USSRSpace,         //!< The set of navigational stars for Soviet and Russian manned space programs Voskhod and Soyuz
+		German,                //!< German set (Nautisches Jahrbuch)
+		GeminiAPS,          //!< Gemini APS Alignment Star List
+		MeadeLX200,      //!< Meade LX200 Alignment Star Library
+		MeadeETX,           //!< Meade ETX Alignment Star Library
+		MeadeAS494,      //!< Meade Autostar #494 Alignment Stars
+		MeadeAS497,      //!< Meade Autostar #497 Alignment Stars
+		CelestronNS,       //!< Celestron NexStar Alignment Star List
+		Apollo,                   //!< Apollo Alignment Star List
+		SkywatcherSS,    //!< Skywatcher SynScan Hand Controller and SynScan Pro App
+		VixenSB,               //!< Vixen Starbook Alignment Stars
+		ArgoNavis,           //!< Alignment stars for Argo Navis digital setting circles
+		OrionIS,	                //!< Alignment stars for Orion Intelliscope mounts
+		SkyCommander  //!< Alignment stars for Sky Commander DSCs
 	};
 	Q_ENUM(NavigationalStarsSet)
 
@@ -168,10 +169,6 @@ public slots:
 	//! Set the set of navigational stars from its key
 	void setCurrentNavigationalStarsSetKey(QString key);
 
-	//! For the currently select object add the extraString info
-	//! in a format that matches the Nautical Almanac.
-	//REMOVE!void extraInfoStrings(const QMap<QString, double>& data, QMap<QString, QString>& strings, QString extraText = "");
-
 	//! Adds StelObject::ExtraInfo for selected object.
 	void addExtraInfo(StelCore* core);
 
@@ -180,22 +177,22 @@ public slots:
 	void extraInfo(StelCore* core, const StelObjectP& selectedObject);
 
 	//! Used to display the extraInfoStrings in standard "paired" lines (for example gha/dev)
-	void displayStandardInfo(const StelObjectP& selectedObject, NavStarsCalculator& calc, const QString& extraText);
+	static void displayStandardInfo(const StelObjectP& selectedObject, NavStarsCalculator& calc, const QString& extraText);
 
 	//! Used to display the extraInfoStrings in tabulated form more suited to students of CN
 	//! as found when using Nautical Almanacs.
-	void displayTabulatedInfo(const StelObjectP& selectedObject, NavStarsCalculator& calc, const QString& extraText);
+	static void displayTabulatedInfo(const StelObjectP& selectedObject, NavStarsCalculator& calc, const QString& extraText);
 
 	//! Given two QStrings return in a format consistent with the
 	//! property setting of "withTables".
 	//! @param QString a The cell left value
 	//! @param QString b The cell right value
 	//! @return QString The representation of the extraString info.
-	QString oneRowTwoCells(const QString& a, const QString& b, const QString& extra, bool tabulatedView);
+	static QString oneRowTwoCells(const QString& a, const QString& b, const QString& extra, bool tabulatedView);
 
 	//! If information output is limited to the currently active navigational stars (getLimitInfoToNavStars()),
 	//! check a dedicated list of exceptions (Sun, Moon, planets apart from Mercury) to also add information.
-	bool isPermittedObject(const QString& s);
+	static bool isPermittedObject(const QString& s);
 
 private slots:
 	//! Call when button "Save settings" in main GUI are pressed
@@ -222,12 +219,12 @@ private:
 	NavigationalStarsSet currentNSSet;
 
 	bool enableAtStartup;
-	bool starLabelsState;
-	bool upperLimb;
-	bool highlightWhenVisible;
-	bool limitInfoToNavStars;
-	bool tabulatedDisplay;
-	bool useUTCTime;
+	bool starLabelsState;      // Keep track of setting in the main program
+	bool upperLimb;            // Computation for Sun/Moon on upper or lower limb
+	bool highlightWhenVisible; // Show only when sky is dark enough
+	bool limitInfoToNavStars;  // Don't show nav data for non-nav stars
+	bool tabulatedDisplay;     // Use tabular layout for nav strings in InfoText
+	bool useUTCTime;           // Use UTC timezone while active
 
 	QString timeZone;
 

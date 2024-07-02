@@ -14,7 +14,7 @@ certified.</p>
 
 <h2>Sun, Moon and Planets</h2>
 
-<p>西方国家以神话人物命名行星。中国自汉代起将五颗行星的名称与五行的概念相匹配。因此，辰星叫水星，太白叫金星，荧惑叫火星，岁星叫木星，镇星叫土星。
+<p>西方国家以神话人物命名行星。中国自汉代起将五颗行星的名称与五行的概念相匹配。因此，辰星叫水星，太白叫金星，荧惑叫火星，岁星叫木星，镇星叫土星。</p>
 <p>在中文中，日月以阴阳命名，分别是太阳和太阴。它们的本名日和月则属于象形文字。</p>
 <p>日月和五行星形成七曜，对应于五行和阴阳。</p>
 
@@ -34,7 +34,7 @@ Earth's way in the sky to copy a world.</p>
 300 Xingguans and 3240 stars in total.</p>
 <p>直到1911年辛亥革命，中国才不再以星官为官方星座系统。与星官不同的是，传统的中国星名仍在现代中国天文学中使用，且比西方名字更常见。 </p>
 
-<p><img src="yxkcxt.png"/><br/><em>Astronomical Map of Complete Studies of Astronomical (1757)</em></p>
+<p><img src="yxkcxt.png"><br><em>Astronomical Map of Complete Studies of Astronomical (1757)</em></p>
 
 
 <h2>三垣</h2>
@@ -69,7 +69,7 @@ Market Enclosure (Wikipedia)</a></li>
 <p>二十八宿分为四象，每象都与一个罗盘方向相关联，并包含七宿，对应于七曜。二十八宿与四象的对应关系，是以古代某一时期春分黄昏时分的天空为依据的。此时朱雀在南，青龙在东，玄武在北，白虎在西。 </p>
 
 <h2>二十八宿列表 (J2000)</h2>
-<table class="nomenclature">
+<table>
    <tr>
       <td>Seven Luminaries</td>
       <td></td>
@@ -449,7 +449,7 @@ Market Enclosure (Wikipedia)</a></li>
  
 <h3>The list of Xingguans</h3>
 
-<table class="nomenclature">
+<table>
    <tr>
       <td>中国名</td>
       <td>Pinyin</td>
@@ -2920,7 +2920,7 @@ parent Xingguan.</p>
 also included in the Xingguans.</p>
 <p>Include the following:</p>
 
-<table class="nomenclature">
+<table>
    <tr>
       <td>General name</td>
       <td>中国名</td>
@@ -2980,8 +2980,8 @@ also included in the Xingguans.</p>
 <p>根据《中国恒星观测史》增补部分恒星。</p>
 <p>对于星座的翻译，我们使用香港太空馆的《中国星区、星官及星名英译表》。只有一小部分翻译发生了变化，例如，当两个不同星官的翻译相同时。</p>
 <p>七颗有中国星名的星没有相应的HIP编号，因此无法在Stellarium中显示。分别是海山二(船底座η)、五车增十八(御夫座12)、进贤增六(室女座39)、大角增二(牧夫座CN)、昴宿增十(金牛座24)、心宿增七(蛇夫座18)、南河增十一(GC
-10303)。 <p>
-<p> <p>
+10303)。 </p>
+<p> </p>
 
 <h2>作者</h2>
 

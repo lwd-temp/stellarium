@@ -165,7 +165,7 @@ void ViewDialog::createDialogContent()
 	// TODOs after properties merge:
 	// Jupiter's GRS should become property, and recheck the other "from trunk" entries.
 	connect(ui->culturesListWidget, SIGNAL(currentTextChanged(const QString&)),&StelApp::getInstance().getSkyCultureMgr(),SLOT(setCurrentSkyCultureNameI18(QString)));
-	connect(&StelApp::getInstance().getSkyCultureMgr(), SIGNAL(currentSkyCultureChanged(QString)), this, SLOT(skyCultureChanged()));
+	connect(&StelApp::getInstance().getSkyCultureMgr(), &StelSkyCultureMgr::currentSkyCultureIDChanged, this, &ViewDialog::skyCultureChanged);
 
 	// Connect and initialize checkboxes and other widgets
 	SolarSystem* ssmgr = GETSTELMODULE(SolarSystem);
@@ -333,7 +333,7 @@ void ViewDialog::createDialogContent()
 	connectCheckBox(ui->landscapeIlluminationCheckBox, "actionShow_LandscapeIllumination");
 	connectCheckBox(ui->landscapeLabelsCheckBox, "actionShow_LandscapeLabels");
 
-	connectBoolProperty(ui->landscapePositionCheckBox, "LandscapeMgr.flagLandscapeSetsLocation");
+	connectBoolProperty(ui->landscapeLocationCheckBox, "LandscapeMgr.flagLandscapeSetsLocation");
 	ui->labelsColorButton->setup("LandscapeMgr.labelColor", "landscape/label_color");
 	connectIntProperty(ui->labelsFontSizeSpinBox, "LandscapeMgr.labelFontSize");
 
@@ -514,7 +514,8 @@ void ViewDialog::createDialogContent()
 
 	// Sky Culture
 	connect(ui->useAsDefaultSkyCultureCheckBox, SIGNAL(clicked()), this, SLOT(setCurrentCultureAsDefault()));
-	connect(&StelApp::getInstance().getSkyCultureMgr(), SIGNAL(defaultSkyCultureChanged(QString)),this,SLOT(updateDefaultSkyCulture()));
+	connect(&StelApp::getInstance().getSkyCultureMgr(), &StelSkyCultureMgr::defaultSkyCultureIDChanged,
+	        this, &ViewDialog::updateDefaultSkyCulture);
 	updateDefaultSkyCulture();
 
 	// allow to display short names and inhibit translation.
